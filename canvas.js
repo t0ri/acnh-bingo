@@ -68,7 +68,7 @@ const setBackground = (() => {
 // `updateVillager('ant01', 'My Name', 1)`
 const updateVillager = (villagerId, villagerName, selectionNum) => {
   let icon = new Image()
-  icon.src = `http://acnhapi.com/v1/images/villagers/${villagerId}`
+  icon.src = `https://acnhapi.com/v1/images/villagers/${villagerId}`
   icon.crossOrigin = 'anonymous'
   icon.onload = () => {
     const column = iconNums.gridPositions[selectionNum][0]
