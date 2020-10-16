@@ -6,7 +6,7 @@ const getVillagers = async (url) => {
   const json = await response.json()
   Object.entries(await json).forEach(villager => {
     villagers.push(villager)
-  });
+  })
 }
 
 const createVillagerSelector = () => {
