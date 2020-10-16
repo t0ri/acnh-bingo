@@ -1,4 +1,4 @@
-const api = 'http://acnhapi.com/v1/villagers/'
+const api = 'https://acnhapi.com/v1/villagers/'
 const villagers = []
 
 const getVillagers = async (url) => {
