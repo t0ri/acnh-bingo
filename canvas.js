@@ -79,7 +79,7 @@ const updateVillager = (villagerId, villagerName, selectionNum) => {
     const textPosition = iconNums.slots.rows[row] + iconNums.height + 30
     
     ctx.fillStyle = "#fff"
-    ctx.fillRect(iconNums.slots.columns[column] + 20, iconNums.slots.rows[row] + 15, iconNums.width, iconNums.height + 17)
+    ctx.fillRect(iconNums.slots.columns[column] + 20, iconNums.slots.rows[row] + 15, iconNums.width, iconNums.height + 20)
 
     ctx.drawImage(icon, iconNums.slots.columns[column] + 20, iconNums.slots.rows[row] + 15, iconNums.width, iconNums.height)
 

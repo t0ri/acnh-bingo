@@ -15,7 +15,7 @@ const createVillagerSelector = () => {
   let selectorElement = document.querySelector('.villager-select')
   
   // Set First Selection View
-  selectorElement.innerHTML = '<option value="">Choose Villager</option>'
+  selectorElement.innerHTML = '<option value="">&nbsp; &nbsp;Select Villager</option>'
   
   // Append an `<option>` for each villager
   villagers.forEach((villager) => {
@@ -30,7 +30,7 @@ const createVillagerSelector = () => {
     if (num === 13) {
       const select = document.createElement('select')
       const option = document.createElement('option')
-      option.innerHTML = 'FREE!'
+      option.innerHTML = ' &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; FREE!'
       select.appendChild(option)
       selectionSection.appendChild(select)
     } else {
