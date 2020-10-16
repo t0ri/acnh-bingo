@@ -58,7 +58,7 @@ canvas.height = 700
 // Set Background
 const setBackground = (() => {
   let background = new Image()
-  background.src = '/card2.jpg'
+  background.src = './card2.jpg'
   background.onload = () => {
     ctx.drawImage(background, 0, 0)
   }
