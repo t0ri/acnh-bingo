@@ -1,0 +1,44 @@
+section#selection {
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+
+  max-width: 590px !important;
+  max-height: 698px;
+}
+
+select {
+  width: 125px;
+  background-color: #babfd0;
+}
+
+body {
+  background-color: #f0f4ff;
+}
+
+div#bingo-card {
+  margin-top: 75px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+div#download-btn {
+  margin-top: 50px;
+  margin-left: 43.5%;
+
+  height: 50px;
+  width: 250px;
+  background-color: #8892b3;
+
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+a#download {
+  font-size: 20px;
+  text-decoration: none;
+  color: white;
+}
