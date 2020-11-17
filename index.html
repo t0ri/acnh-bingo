@@ -8,24 +8,26 @@
     <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
   </head>
   <body>
-    <h1>Choose 24 Villagers & Download Your Bingo Card!</h1>
-    <h2><span aria-labelledby="sparkle">✨</span> from <a href="https://github.com/t0ri">@t0ri</a> <span aria-labelledby="sparkle">✨</span></h2>
     <div id="bingo-card">
-
-      <section id="selection">
-        <select name="1" class="villager-select">
-          <option value="">Loading Villagers</option>
-        </select>
+      <section id="villagers">
+        <div id="top">
+          <div id="logo"><img src="bingoicon.png"/></div>
+          <div id="ad">
+            <h4 class="grow"><span aria-labelledby="sparkle">✨</span><span aria-labelledby="point-right">👉 </span><a href="https://github.com/t0ri" target="_blank">Developer of ACNH Bingo Card Generator is job-hunting!</a></a><span aria-labelledby="point-left"> 👈</span><span aria-labelledby="sparkle">✨</span></h4>
+          </div>
+        </div>
+          <div id="villagers-container">Loading 393 New Horizons Villagers...</div>
       </section>
-
       <section id="canvas">
+        <h1 id="instructions">Select a Spot on the Bingo Card to Fill.</h1>
+
         <canvas></canvas>
+
+        <div id="download-btn">
+          <a id="download" download="bingo-card.jpg" href="" onclick="downloadImage(this)">Download Bingo Card</a>
+        </div>
       </section>
 
-    </div>
-
-    <div id="download-btn">
-      <a id="download" download="bingo-card.jpg" href="" onclick="downloadImage(this)">Download Bingo Card</a>
     </div>
 
     <script src="selector.js"></script>
