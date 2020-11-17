@@ -55,6 +55,61 @@ ctx = canvas.getContext('2d')
 canvas.width = 590
 canvas.height = 700
 
+// Detect Row Clicked
+const detectRow = (clickX) => {
+  if (clickX > iconNums.slots.rows['1']) {
+    if (clickX > iconNums.slots.rows['2']) {
+      if (clickX > iconNums.slots.rows['3']) {
+        if (clickX > iconNums.slots.rows['4']) {
+          if (clickX > iconNums.slots.rows['5']) {
+            return '5'
+          }
+          return '4'
+        }
+        return '3'
+      }
+      return '2'
+    }
+    return '1'
+  }
+}
+
+// Detect Column Clicked
+const detectColumn = (clickY) => {
+  if (clickY > iconNums.slots.columns['B'] - 15) {
+    if (clickY > iconNums.slots.columns['I']) {
+      if (clickY > iconNums.slots.columns['N']) {
+        if (clickY > iconNums.slots.columns['G']) {
+          if (clickY > iconNums.slots.columns['O'])  {
+            return 'O'
+          }
+          return 'G'
+        }
+        return 'N'
+      }
+      return 'I'
+    }
+    return 'B'
+  }
+}
+
+// Find Slot Clicked
+const detectSlot = (windowX, windowY) => {
+  const canvasRect = canvas.getBoundingClientRect()
+  const bodyRect = document.body.getBoundingClientRect()
+  const offsetTop = canvasRect.top - bodyRect.top
+  const offsetLeft = canvasRect.left - bodyRect.left
+
+  const column = detectColumn(windowX - offsetLeft - 8)
+  const row = detectRow(windowY - offsetTop - 20)
+
+  console.info(column, row)
+}
+
+const clickCanvas = (e) => {
+  detectSlot(e.clientX, e.clientY)
+}
+
 // Set Background
 const setBackground = (() => {
   let background = new Image()
@@ -62,6 +117,7 @@ const setBackground = (() => {
   background.onload = () => {
     ctx.drawImage(background, 0, 0)
   }
+  canvas.addEventListener('click', clickCanvas)
 })()
 
 // Set Villager
