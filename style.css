@@ -48,6 +48,10 @@ section#villagers {
   border-bottom: 2px solid #5288ac;
 }
 
+.animal-portrait {
+  height: 7vh;
+}
+
 #villagers-container {
   margin: 5vh 2.5vw 0 2.5vw;
   color: #1a5165;
@@ -60,8 +64,8 @@ section#villagers {
 }
 
 .portrait-container {
-  width: 10vw;
-  margin: 1vh 1vw 1vw 1vh;
+  width: 9vw;
+  margin: .5vh;
 
   color: #2e556e;
   font-weight: 500;
@@ -113,7 +117,7 @@ canvas {
 }
 
 #ad .grow:hover {
-  transform: scale(1.05);
+  transform: translateX(2px) scale(1.02);
 }
 
 .grow {
