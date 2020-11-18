@@ -1,15 +1,10 @@
 body {
+  margin: 0;
+  overflow: hidden;
+
   text-align: center;
-  background-color: #ecfdfd;
-}
-
-section#selection {
-  display: inline-grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-
-  max-width: 590px !important;
-  max-height: 698px;
+  
+  background-color: #fafafa;
 }
 
 h1 {
@@ -17,31 +12,129 @@ h1 {
 }
 
 h2 {
-  font-style: italic;
   color: #5288ac;
-}
-
-h2 a {
-  color: #5288ac;
-}
-
-select {
-  width: 125px;
-  background-color: #7fb0b2;
-  border-color: #fff;
 }
 
 div#bingo-card {
-  margin-top: 25;
+  display: flex;
+}
 
+section#villagers {
+  width: 60vw;
+  height: 100vh;
+  
+  overflow: scroll;
+}
+
+#instructions {
+  margin: 3vh 5vw 0 2.25vw;
+  padding-top: 3vh;
+
+  height: 6vh;
+  width: 35vw;
+
+  font-size: 30px;
+
+  background-color: #f7f2dc;
+  border-radius: 30px;
+}
+
+.animal-type-header {
+  margin-left: 2vw;
+  
+  color: #5288ac;
+  text-align: left;
+
+  border-bottom: 2px solid #5288ac;
+}
+
+.animal-portrait {
+  height: 7vh;
+}
+
+#villagers-container {
+  margin: 5vh 2.5vw 0 2.5vw;
+  color: #1a5165;
+}
+
+.animal-type-portrait-container {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-evenly;
 }
 
+.portrait-container {
+  width: 9vw;
+  margin: .5vh;
+
+  color: #2e556e;
+  font-weight: 500;
+
+  filter: drop-shadow(12px 12px 25px rgba(0,0,0,0.25));
+
+  cursor: pointer;
+}
+
+section#canvas {
+  height: 100vh;
+  width: 40vw;
+  
+  position: fixed;
+  right: 0;
+  
+  background-color: #CADEE6;
+}
+
+canvas {
+  margin-top: 3vh;
+}
+
+#logo img {
+  height: 10vh;
+
+  margin: 2vh 0 0 2vw;
+}
+
+#top {
+  display: flex;
+  flex-flow: row nowrap;
+
+  height: 10vh;
+}
+
+#ad {
+  width: 40vw;
+
+  margin: 5vh 0 0 1.1vw;
+
+  text-align: left;
+  font-style: italic;
+  font-weight: 100;
+}
+
+#ad .grow {
+  transition: all .2s ease-in-out;
+}
+
+#ad .grow:hover {
+  transform: translateX(2px) scale(1.02);
+}
+
+.grow {
+  transition: all .2s ease-in-out;
+}
+
+.grow:hover {
+  transform: scale(1.1);
+}
+
+#ad a {
+  color: grey;
+}
+
 div#download-btn {
-  margin-top: 25px;
-  margin-left: 43.5%;
+  margin-top: 2vh;
+  margin-left: 13vw;
 
   height: 50px;
   width: 250px;

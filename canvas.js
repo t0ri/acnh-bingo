@@ -21,31 +21,31 @@ const iconNums = {
     }
   },
   gridPositions: {
-    1: ['B', '1'],
-    2: ['I', '1'],
-    3: ['N', '1'],
-    4: ['G', '1'],
-    5: ['O', '1'],
-    6: ['B', '2'],
-    7: ['I', '2'],
-    8: ['N', '2'],
-    9: ['G', '2'],
-    10: ['O', '2'],
-    11: ['B', '3'],
-    12: ['I', '3'],
-    13: ['N', '3'],
-    14: ['G', '3'],
-    15: ['O', '3'],
-    16: ['B', '4'],
-    17: ['I', '4'],
-    18: ['N', '4'],
-    19: ['G', '4'],
-    20: ['O', '4'],
-    21: ['B', '5'],
-    22: ['I', '5'],
-    23: ['N', '5'],
-    24: ['G', '5'],
-    25: ['O', '5']
+    'B 1': 1,
+    'I 1': 2, 
+    'N 1': 3, 
+    'G 1': 4, 
+    'O 1': 5, 
+    'B 2': 6, 
+    'I 2': 7, 
+    'N 2': 8, 
+    'G 2': 9, 
+    'O 2': 10, 
+    'B 3': 11, 
+    'I 3': 12, 
+    'N 3': 13, 
+    'G 3': 14, 
+    'O 3': 15, 
+    'B 4': 16, 
+    'I 4': 17, 
+    'N 4': 18, 
+    'G 4': 19, 
+    'O 4': 20, 
+    'B 5': 21, 
+    'I 5': 22, 
+    'N 5': 23, 
+    'G 5': 24, 
+    'O 5': 25, 
   }
 }
 
@@ -55,6 +55,73 @@ ctx = canvas.getContext('2d')
 canvas.width = 590
 canvas.height = 700
 
+// Detect Row Clicked
+const detectRow = (clickX) => {
+  if (clickX > iconNums.slots.rows['1']) {
+    if (clickX > iconNums.slots.rows['2']) {
+      if (clickX > iconNums.slots.rows['3']) {
+        if (clickX > iconNums.slots.rows['4']) {
+          if (clickX > iconNums.slots.rows['5']) {
+            return '5'
+          }
+          return '4'
+        }
+        return '3'
+      }
+      return '2'
+    }
+    return '1'
+  }
+}
+
+// Detect Column Clicked
+const detectColumn = (clickY) => {
+  if (clickY > iconNums.slots.columns['B'] - 15) {
+    if (clickY > iconNums.slots.columns['I']) {
+      if (clickY > iconNums.slots.columns['N']) {
+        if (clickY > iconNums.slots.columns['G']) {
+          if (clickY > iconNums.slots.columns['O'])  {
+            return 'O'
+          }
+          return 'G'
+        }
+        return 'N'
+      }
+      return 'I'
+    }
+    return 'B'
+  }
+}
+
+// Find Slot Clicked
+const detectSlot = (windowX, windowY) => {
+  const canvasRect = canvas.getBoundingClientRect()
+  const bodyRect = document.body.getBoundingClientRect()
+  const offsetTop = canvasRect.top - bodyRect.top
+  const offsetLeft = canvasRect.left - bodyRect.left
+
+  const column = detectColumn(windowX - offsetLeft - 8)
+  const row = detectRow(windowY - offsetTop - 20)
+
+  return `${column} ${row}`
+}
+
+let gridPosition
+let slot
+
+const clickCanvas = (e) => {
+  slot = detectSlot(e.clientX, e.clientY)
+  gridPosition = iconNums.gridPositions[slot]
+
+  if (gridPosition && gridPosition !== 13) {
+    const instructions = document.getElementById('instructions')
+    instructions.innerHTML = `Select a Villager to fill ${slot.replace(/\s/g, '')}.`
+  } else if (gridPosition === 13) {
+    const instructions = document.getElementById('instructions')
+    instructions.innerHTML = `Cannot Replace Free Space!`
+  }
+}
+
 // Set Background
 const setBackground = (() => {
   let background = new Image()
@@ -62,31 +129,40 @@ const setBackground = (() => {
   background.onload = () => {
     ctx.drawImage(background, 0, 0)
   }
+  canvas.addEventListener('click', clickCanvas)
 })()
 
 // Set Villager
 // `updateVillager('ant01', 'My Name', 1)`
-const updateVillager = (villagerId, villagerName, selectionNum) => {
-  let icon = new Image()
-  icon.src = `https://acnhapi.com/v1/images/villagers/${villagerId}`
-  icon.crossOrigin = 'anonymous'
-  icon.onload = () => {
-    const column = iconNums.gridPositions[selectionNum][0]
-    const row = iconNums.gridPositions[selectionNum][1]
+const updateVillager = (villagerId, villagerName) => {
+  if (gridPosition && gridPosition !== 13) {
+    let icon = new Image()
+    icon.src = `https://acnhapi.com/v1/images/villagers/${villagerId}`
+    icon.crossOrigin = 'anonymous'
     
-    const columnCenter = iconNums.slots.columns[column] + 30 + 20
-    const textWidth = Number(ctx.measureText(villagerName).width) / 2
-    const textPosition = iconNums.slots.rows[row] + iconNums.height + 30
+    let column = slot[0]
+    let row = slot[2]
     
-    ctx.fillStyle = "#fff"
-    ctx.fillRect(iconNums.slots.columns[column] + 20, iconNums.slots.rows[row] + 15, iconNums.width, iconNums.height + 20)
-
-    ctx.drawImage(icon, iconNums.slots.columns[column] + 20, iconNums.slots.rows[row] + 15, iconNums.width, iconNums.height)
-
-    ctx.font = '14px Balsamiq Sans'
-    ctx.fillStyle = '#60bec3'
-    ctx.fillText(villagerName, columnCenter - textWidth, textPosition)
+    icon.onload = () => {
+      const columnCenter = iconNums.slots.columns[column] + 30 + 20
+      const textWidth = Number(ctx.measureText(villagerName).width) / 2
+      const textPosition = iconNums.slots.rows[row] + iconNums.height + 30
+      
+      ctx.fillStyle = "#fff"
+      ctx.fillRect(iconNums.slots.columns[column] + 20, iconNums.slots.rows[row] + 15, iconNums.width, iconNums.height + 20)
+  
+      ctx.drawImage(icon, iconNums.slots.columns[column] + 20, iconNums.slots.rows[row] + 15, iconNums.width, iconNums.height)
+  
+      ctx.font = '14px Balsamiq Sans'
+      ctx.fillStyle = '#60bec3'
+      ctx.fillText(villagerName, columnCenter - textWidth, textPosition)
+    }
   }
+
+  gridPosition = undefined
+  slot = undefined
+  const instructions = document.getElementById('instructions')
+  instructions.innerHTML = 'Select a Spot on the Bingo Card to Fill.'
 }
 
 // Download Button Clicked
