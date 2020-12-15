@@ -7,7 +7,7 @@ v1 (`/master`) built in a day.
 
 v2 (`/ui-enhancement`) designed and built in 2 days.
 
-Fonts: [Fink Heavy](https://www.fontsmarket.com/font-download/fink-heavy), [Chicken Quiche](https://www.dafont.com/chicken-quiche.font)
+Fonts: [Fink Heavy](https://www.fontsmarket.com/font-download/fink-heavy), [Klepon-Ijo](https://www.dafont.com/klepon-ijo)
 APIs: [ACNH API](http://acnhapi.com/)
 
 ### To Do
