@@ -15,7 +15,7 @@ APIs: [ACNH API](http://acnhapi.com/)
 - Fix bug that causes name of first villager selected to be off center
 
 ## v2
-<img src="./preview2.jpeg">
+<img src="./img/preview2.jpeg">
 
 ## v1
-<img src="./preview.png">
+<img src="./img/preview.png">

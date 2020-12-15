@@ -125,7 +125,7 @@ const clickCanvas = (e) => {
 // Set Background
 const setBackground = (() => {
   let background = new Image()
-  background.src = './card3.jpg'
+  background.src = '../img/card.jpg'
   background.onload = () => {
     ctx.drawImage(background, 0, 0)
   }
