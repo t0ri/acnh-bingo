@@ -135,7 +135,6 @@ const setBackground = (() => {
 // Set Villager
 // `updateVillager('id', 'My Name', 1)`
 const updateVillager = (villagerId, villagerName, position=gridPosition, cardSlot=slot) => {
-  console.log(position)
   if (position && position !== 13) {
     let icon = new Image()
     icon.src = `https://acnhapi.com/v1/images/villagers/${villagerId}`

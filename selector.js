@@ -10,8 +10,6 @@ const getVillagers = async (url) => {
       villagerNew.id = villager[0]
       villagers.push(villagerNew)
     })
-  } else {
-    console.log(villagers.length)
   }
 }
 
@@ -249,9 +247,6 @@ const init = () => {
     const unsortedVillagers = new Set(villagers)
     villagers = sortVillagers()
     createSelections()
-    console.info({ villagers }, { unsortedVillagers })
-  } else {
-    console.trace('villagers =/= 0 || villagers < 391', villagers.length)
   }
 }
 
