@@ -20,6 +20,11 @@
       </section>
       <section id="canvas">
         <h1 id="instructions">Select a Spot on the Bingo Card to Fill.</h1>
+        <p id="randomize" class="grow" onclick="randomizeCard(this)">
+          <span aria-labelledby="arrow-right">➡️</span>
+          Or click here to randomize your bingo card.
+          <span aria-labelledby="arrow-left"> ⬅️</span>
+        </p>
 
         <canvas></canvas>
 
@@ -32,5 +37,6 @@
 
     <script src="selector.js"></script>
     <script src="canvas.js"></script>
+    <script src="randomize.js"></script>
   </body>
 </html>

@@ -28,15 +28,31 @@ section#villagers {
 
 #instructions {
   margin: 3vh 5vw 0 2.25vw;
-  padding-top: 3vh;
+  padding-top: 1.5vh;
 
-  height: 6vh;
+  height: 5vh;
   width: 35vw;
 
   font-size: 30px;
 
   background-color: #f7f2dc;
   border-radius: 30px;
+}
+
+#randomize {
+  cursor: pointer;
+
+  margin-top: 1vh;
+  margin-bottom: -1vh;
+
+  color: #1a5165;
+
+  font-style: italic;
+  font-weight: bolder;
+}
+
+#randomize span {
+  font-style: normal;
 }
 
 .animal-type-header {
@@ -112,20 +128,22 @@ canvas {
   font-weight: 100;
 }
 
-#ad .grow {
-  transition: all .2s ease-in-out;
-}
-
-#ad .grow:hover {
-  transform: translateX(2px) scale(1.02);
-}
-
 .grow {
   transition: all .2s ease-in-out;
 }
 
 .grow:hover {
   transform: scale(1.1);
+}
+
+#ad .grow,
+#randomize.grow {
+  transition: all .2s ease-in-out;
+}
+
+#ad .grow:hover,
+#randomize.grow:hover {
+  transform: translateX(2px) scale(1.02);
 }
 
 #ad a {

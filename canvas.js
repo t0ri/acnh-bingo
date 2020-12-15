@@ -170,3 +170,4 @@ const downloadImage = (element) => {
   let image = canvas.toDataURL('image/jpg')
   element.href = image
 }
+
