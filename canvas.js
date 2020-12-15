@@ -133,15 +133,16 @@ const setBackground = (() => {
 })()
 
 // Set Villager
-// `updateVillager('ant01', 'My Name', 1)`
-const updateVillager = (villagerId, villagerName) => {
-  if (gridPosition && gridPosition !== 13) {
+// `updateVillager('id', 'My Name', 1)`
+const updateVillager = (villagerId, villagerName, position=gridPosition, cardSlot=slot) => {
+  console.log(position)
+  if (position && position !== 13) {
     let icon = new Image()
     icon.src = `https://acnhapi.com/v1/images/villagers/${villagerId}`
     icon.crossOrigin = 'anonymous'
     
-    let column = slot[0]
-    let row = slot[2]
+    let column = cardSlot[0]
+    let row = cardSlot[2]
     
     icon.onload = () => {
       const columnCenter = iconNums.slots.columns[column] + 30 + 20
@@ -171,3 +172,24 @@ const downloadImage = (element) => {
   element.href = image
 }
 
+const randomizeCard = (element) => {
+  // updateVillager('ant01', 'Winston', 1, 'B 1')
+
+  // For each slot on Bingo Card (1-25, except 13)
+  for (gridPosition = 0; gridPosition < 26; gridPosition++) {
+    if (gridPosition !== 13) {
+      // Generate slot from gridPosition
+      Object.keys(villagers).find(gridPosition => object[gridPosition] === value);
+
+
+      // Get random integer between 0 and 391
+      randomVillager = Math.floor(Math.random() * Math.floor(392))
+      
+    }
+  }
+  // for each bingo space (0 - 25, except 13)
+    // set grid position
+    // get random num between 0 - 393
+    // get villagers[random num]
+    // updateVillager()
+}

@@ -10,6 +10,8 @@ const getVillagers = async (url) => {
       villagerNew.id = villager[0]
       villagers.push(villagerNew)
     })
+  } else {
+    console.log(villagers.length)
   }
 }
 
@@ -30,7 +32,7 @@ const sortVillagers = () => {
   let gorillas = villagers.filter(villager => villager.species === 'Gorilla')
   let hamsters = villagers.filter(villager => villager.species === 'Hamster')
   let hippos = villagers.filter(villager => villager.species === 'Hippo')
-  let horses = villagers.filter(villager => villager.species === 'Horses')
+  let horses = villagers.filter(villager => villager.species === 'Horse')
   let kangaroos = villagers.filter(villager => villager.species === 'Kangaroo')
   let koalas = villagers.filter(villager => villager.species === 'Koala')
   let lions = villagers.filter(villager => villager.species === 'Lion')
@@ -240,14 +242,16 @@ const createSelections = () => {
 }
 
 const init = () => {
-  if (villagers.length >= 393) {
+  if (villagers.length === 0) {
+    getVillagers(api)
+    setTimeout(init, 500)
+  } else if (villagers.length >= 391) {
     const unsortedVillagers = new Set(villagers)
     villagers = sortVillagers()
     createSelections()
     console.info({ villagers }, { unsortedVillagers })
   } else {
-    getVillagers(api)
-    setTimeout(init, 500)
+    console.trace('villagers =/= 0 || villagers < 391', villagers.length)
   }
 }
 
