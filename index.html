@@ -20,7 +20,7 @@
       </section>
       <section id="canvas">
         <h1 id="instructions">Select a Spot on the Bingo Card to Fill.</h1>
-        <p id="randomize" class="grow" onclick="randomizeCard(this)">
+        <p id="randomize" class="grow" onclick="card.randomizeCard(this)">
           <span aria-labelledby="arrow-right">➡️</span>
           Or click here to randomize your bingo card.
           <span aria-labelledby="arrow-left"> ⬅️</span>
@@ -29,14 +29,15 @@
         <canvas></canvas>
 
         <div id="download-btn">
-          <a id="download" download="bingo-card.jpg" href="" onclick="downloadImage(this)">Download Bingo Card</a>
+          <a id="download" download="bingo-card.jpg" href="" onclick="card.downloadImage(this)">Download Bingo Card</a>
         </div>
       </section>
 
     </div>
 
-    <script src="js/Villagers.js"></script>
+    <script src="js/SlotData.js"></script>
     <script src="js/UI.js"></script>
+    <script src="js/Villagers.js"></script>
     <script src="js/Card.js"></script>
   </body>
 </html>
