@@ -12,6 +12,7 @@ Vanilla HTML, CSS, and JS project.
 ### v3
 <img src="https://i.gyazo.com/0534e9d5eda575d49d3aca988f50173f.jpg">
 v3 (`/refactor`) refactored in 2 days.
+
 - added randomize feature
 - updated file structure
 - updated to class-based files
@@ -20,6 +21,7 @@ v3 (`/refactor`) refactored in 2 days.
 ### v2
 <img src="./img/preview2.jpeg">
 v2 (`/ui-enhancement`) designed and built in 2 days.
+
 - complete redesign of application
 - able to view villagers before selection
 - added easier UX for card creation
